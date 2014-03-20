@@ -1,0 +1,19 @@
+%section
+	.container
+		.row
+			.col-lg-12
+				.page-header.no-margin-top.margin-bottom
+					%strong 
+						=link_to @user do
+							=image_tag @user.avatar.url(:xs), :class=>"pull-left quarter-margin-right img-circle", :style=>"margin-top:4px;"
+							=@user.first_name 
+							=@user.last_name 
+					\/
+					Following
+				-if @user.followers.count == 0
+					%p.muted
+						= @user.first_name
+						Is not following anyone
+				- @user.followers.each do |user|
+					=render :partial => "user_thumb", :locals => {:user => user}
+					%hr

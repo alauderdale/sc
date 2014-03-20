@@ -11,6 +11,6 @@
 	.container
 		.col-lg-12
 			- @users.each do |user|
-				=render :partial => "user_info", :locals => {:user => user}
+				=render :partial => "user_thumb", :locals => {:user => user}
 				.clearfix
 				%hr

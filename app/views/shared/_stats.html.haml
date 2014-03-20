@@ -1,0 +1,15 @@
+%div
+	.pull-left.margin-right
+		=link_to (following_user_path(user)) do
+			%h1.no-margin-bottom
+				%strong
+					= user.followed_users.count
+			%p
+				Following
+	.pull-left.margin-right
+		=link_to (followers_user_path(@user)) do
+			%h1.no-margin-bottom
+				%strong
+					= user.followers.count
+			%p
+				Followers

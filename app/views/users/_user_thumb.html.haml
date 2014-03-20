@@ -1,5 +1,5 @@
 .row
-	.col-sm-6
+	.col-sm-12
 		.media-object
 			.pull-left
 				=link_to user do
@@ -19,5 +19,3 @@
 						%strong
 							Favorite scotch:
 						=user.favorite_scotch
-	.col-sm-6
-		=render :partial =>"shared/stats" , :locals => {:user => user}
