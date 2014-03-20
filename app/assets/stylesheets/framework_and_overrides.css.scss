@@ -555,7 +555,6 @@ a{
   @include transition-duration(.3s);
   font-size:1em;
   color:white!important;
-  padding:$baseline/2 $baseline;
   &.btn-primary{
     background-color:tint($secondary-color,10%);
     border-color:shade($secondary-color,20%)!important;
