@@ -109,8 +109,8 @@ img {
 
 // color vars
 
-$primary-color: #40b2cd;
-$secondary-color: #66bd61;
+$primary-color: #e48e1e;
+$secondary-color: #e48e1e;
 $medium-gray-color: #f2f2f2;
 $light-gray-color: #fafafa;
 $gray-color:#dddddd;
@@ -118,7 +118,7 @@ $text-color: #444;
 $black-color:#2a2929;
 
 
-$link-color:$primary-color;
+$link-color:#7D7A75;
 
 // font vars
 
@@ -149,7 +149,7 @@ body{
   -webkit-text-size-adjust: 100%;
   width:100%;
   line-height: $baseline;
-  background:$medium-gray-color;
+  background:#fafafa;
 }
 
 //fonts
@@ -197,7 +197,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 h1, h2, h3, h4, h5, h6, p {
   margin:0;
-  margin-bottom:$baseline; 
+  margin-bottom:$baseline/2; 
   color:$text-color;
 }
 
@@ -537,9 +537,10 @@ ul.inline{
 //links
 
 a{
-  color:$primary-color;
+  color:$link-color;
   &:hover{
-    text-decoration:none;
+    text-decoration:underline;
+    color:shade($link-color,50%);
   }
   &.disabled{
     cursor: not-allowed;
@@ -583,6 +584,11 @@ a{
 
 section{
   padding:$baseline 0;
+  &.invert{
+    h1,h2,h3,h4,h5,h6,p{
+      color:white!important;
+    }
+  }
 }
 
 //panels
@@ -664,21 +670,13 @@ section{
 
 .main-nav{
   min-height:inherit!important;
-  background-color:rgba(255,255,255,.98);
-  li{
-    a,p{
-      font-size:1em;
-      line-height:1em;
-      padding:$baseline 10px!important;
-      margin:0!important;
-      font-family:$bold-font-name!important;
-    }
-    a{
-      color:$link-color!important;
-      &:hover{
-        color:shade($link-color,50%)!important;
-      }
-    }
+  background-color:white!important;
+  a.navbar-brand{
+    width:150px;
+    height:35px;
+    margin-top:$baseline/3;
+    background-size:99.9%;
+    background-image:image-url('logo.png');
   }
 }
 

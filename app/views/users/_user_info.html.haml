@@ -1,9 +1,18 @@
 .media-object
 	.pull-left
 		=link_to user do
-			= image_tag user.avatar.url(:thumb), :class=>"margin-right img-circle"
+			= image_tag user.avatar.url(:thumb), :class=>"half-margin-right img-circle"
 	.media-body
-		%h3
+		%h4.quarter-margin-bottom
 			=link_to user do
 				=user.first_name
 				=user.last_name
+		%p
+			%small
+				Proud member sinse 
+				=user.created_at.strftime('%B %e, %Y')
+		%p
+			%small
+				%i.fa.fa-glass
+				Favorite scotch:
+				=user.favorite_scotch
