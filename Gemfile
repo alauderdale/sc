@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
 gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
 gem 'figaro'
 gem 'haml-rails'
 gem 'simple_form'
