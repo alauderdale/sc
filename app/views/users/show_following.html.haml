@@ -9,7 +9,7 @@
 							=@user.first_name 
 							=@user.last_name 
 					\/
-					Followers
+					Following
 				-if @user.followed_users.count == 0
 					%p.muted
 						= @user.first_name
