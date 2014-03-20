@@ -13,7 +13,7 @@
 				-if @user.followers.count == 0
 					%p.muted
 						= @user.first_name
-						Is not following anyone
+						Has no followers
 				- @user.followers.each do |user|
 					=render :partial => "user_thumb", :locals => {:user => user}
 					%hr
