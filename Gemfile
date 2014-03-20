@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+gem 'rename'
 gem 'rails', '4.0.0'
 gem 'sqlite3'
 gem "bourbon", "3.1.0"
@@ -11,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
+gem "paperclip", "~> 4.1"
 gem 'figaro'
 gem 'haml-rails'
 gem 'simple_form'

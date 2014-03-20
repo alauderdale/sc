@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Gloo::Application.config.secret_key_base = '4f4f0a90242af0e48751f2d68cdf8d946e493e905e0195182104eac305d5501f43899eec2fe526c75912af644b74551a9f5a51b852eae9c0b2c7a9a96588baaa'
+ScotchClub::Application.config.secret_key_base = '4f4f0a90242af0e48751f2d68cdf8d946e493e905e0195182104eac305d5501f43899eec2fe526c75912af644b74551a9f5a51b852eae9c0b2c7a9a96588baaa'

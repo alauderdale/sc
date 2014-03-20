@@ -1,8 +1,6 @@
-%h3 
-	User
-%p
-	Email: #{@user.email if @user.email}
-%p
-	Name: 
-	= @user.first_name
-	= @user.last_name
+%section
+	.container
+		.col-lg-12
+			=render :partial => "user_info", :locals => {:user => @user}
+			.clearfix
+			%hr

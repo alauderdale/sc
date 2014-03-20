@@ -1,0 +1,7 @@
+.media-object
+	.pull-left
+		= image_tag user.avatar.url(:thumb), :class=>"margin-right img-circle"
+	.media-body
+		%h3
+			=user.first_name
+			=user.last_name

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Gloo::Application.load_tasks
+ScotchClub::Application.load_tasks
