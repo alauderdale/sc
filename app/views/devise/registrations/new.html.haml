@@ -31,7 +31,15 @@
               .form-group
                 = f.label :password_confirmation
                 = f.password_field :password_confirmation, class: 'form-control'
-              .form-group
+              %label
+                Select Avatar
+              .alert.alert-warning
+                %i.fa.fa-square
+                %strong
+                  Heads up
+                Try to make your avatar squareish
+              .form-group.margin-bottom
                 = f.file_field :avatar
+              %hr
               = f.submit 'Sign up', :class => 'btn btn-primary'
     .col-sm-2
