@@ -1,28 +1,29 @@
 -# navigation styled for Bootstrap 3.0
 %nav.navbar.navbar-default.navbar-fixed-top.main-nav
   .container
-    .col-lg-12
-      .navbar-header
-        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        = link_to root_path,  class: 'navbar-brand margin-right' do
-          .logo
-      .collapse.navbar-collapse
-        %ul.nav.navbar-nav.navbar-left
-          = render 'layouts/navigation_links'
-        - if user_signed_in?
-          %ul.nav.navbar-nav.navbar-right
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                .pull-left
-                  =image_tag current_user.avatar.url(:xs), :class=>"img-circle"
-                %b.caret
-              %ul.dropdown-menu
-                %li= link_to 'Edit account', edit_user_registration_path
-                %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+    .row
+      .col-lg-12
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to root_path,  class: 'navbar-brand margin-right' do
+            .logo
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-left
+            = render 'layouts/navigation_links'
+          - if user_signed_in?
+            %ul.nav.navbar-nav.navbar-right
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  .pull-left
+                    =image_tag current_user.avatar.url(:xs), :class=>"img-circle"
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to 'Edit account', edit_user_registration_path
+                  %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
 
 
 
