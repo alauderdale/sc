@@ -39,7 +39,8 @@
                     = f.label :current_password
                     = f.password_field :current_password, class: 'form-control'
                   .form-group
-                    = f.file_field :avatar
+                    = f.file_field :avatar, :class=>"full-width"
+
                 = f.submit 'Update', :class => 'btn btn-primary right'
             .clearfix
             .authform
