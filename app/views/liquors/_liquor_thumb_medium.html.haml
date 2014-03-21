@@ -1,0 +1,9 @@
+.row
+	.col-sm-2
+		=image_tag liquor.liquor_image.url(:thumb), :class=>"img-responsive full-width thumbnail"
+	.col-sm-10
+		=link_to liquor do 
+			%h4
+				=liquor.name
+		%p
+			=liquor.description

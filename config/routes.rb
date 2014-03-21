@@ -6,10 +6,15 @@ ScotchClub::Application.routes.draw do
     member do
       get :following, :followers
     end
-    resources :shots
   end
+  
+  devise_for :liquors
+  resources :liquors
 
   namespace :admin do 
   	get '', to: 'dashboard#index', as: '/' 
   end 
+
+  post ':controller(/:action(/:id(.:format)))'
+  get ':controller(/:action(/:id(.:format)))'
 end
