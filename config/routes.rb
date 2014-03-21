@@ -9,7 +9,9 @@ ScotchClub::Application.routes.draw do
   end
   
   devise_for :liquors
-  resources :liquors
+  resources :liquors do
+    resources :comments
+  end
 
   namespace :admin do 
   	get '', to: 'dashboard#index', as: '/' 

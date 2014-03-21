@@ -1,11 +1,28 @@
 %section
 	.container
 		.row
-			.col-lg-12
-				.panel
-					.panel-body
-						.padded
-							=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
-							%hr
+			.col-sm-9
+				.row
+					.col-sm-9
+						.panel
+							.panel-body
+								.padded
+									=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
+						-@liquor.comments.each do |c|
+							=render partial: 'comments/comment', locals:{:comment => c}
+						- if current_user.present?
+							.page-header
+								%p.no-margin-bottom
+									%strong
+										Add a new comment
+							= form_for([@liquor, @liquor.comments.build]) do |f|
+								.form-group
+									= f.text_area :body, :rows => 9, :required => true, :class=>"form-control"
+								= submit_tag("Post comment", :class=>"btn btn-primary")
+					.col-sm-3
+						- if current_user.present?
 							=link_to(edit_liquor_path) do
+								%i.fa.fa-cog
 								Edit
+								%hr.quarter-margin-top.quarter-margin-bottom
+			.col-sm-3

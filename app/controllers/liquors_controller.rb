@@ -6,6 +6,7 @@ class LiquorsController < ApplicationController
 
   def show
     @liquor = Liquor.find(params[:id])
+    @comment = Comment.new( :liquor => @liquor )
   end
 
 	def new

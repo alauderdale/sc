@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_many :liquors
+  has_many :comments, dependent: :destroy
 
   def admin?
     admin
