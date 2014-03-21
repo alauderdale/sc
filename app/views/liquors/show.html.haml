@@ -18,7 +18,7 @@
 							= form_for([@liquor, @liquor.comments.build]) do |f|
 								.form-group
 									= f.text_area :body, :rows => 9, :required => true, :class=>"form-control"
-								= submit_tag("Post comment", :class=>"btn btn-primary")
+								= submit_tag("Post comment", :class=>"btn btn-primary margin-bottom")
 					.col-sm-3
 						- if current_user.present?
 							=link_to(edit_liquor_path) do
