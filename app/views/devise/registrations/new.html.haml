@@ -1,45 +1,46 @@
 %section
   .container
-    = devise_error_messages!
-    .col-sm-2
-    .col-sm-8
-      .text-center
-        %h3.light-font-name.no-margin-bottom
-          Sign up for scotch club
-        %p.text-muted
-          %small
-            We'll have you rollin in no time!
-      .panel
-        .panel-body
-          .authform
-            = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
-              .form-group
-                = f.label :email
-                = f.email_field :email, :autofocus => true, class: 'form-control'
-              .form-group
-                = f.label :first_name
-                = f.search_field :first_name, class: 'form-control'
-              .form-group
-                = f.label :last_name
-                = f.search_field :last_name,  class: 'form-control'
-              .form-group
-                = f.label :favorite_scotch
-                = f.text_field :favorite_scotch, class: 'form-control'
-              .form-group
-                = f.label :password
-                = f.password_field :password, class: 'form-control'
-              .form-group
-                = f.label :password_confirmation
-                = f.password_field :password_confirmation, class: 'form-control'
-              %label
-                Select Avatar
-              .alert.alert-warning
-                %i.fa.fa-square
-                %strong
-                  Heads up
-                Try to make your avatar squareish
-              .form-group.margin-bottom
-                = f.file_field :avatar
-              %hr
-              = f.submit 'Sign up', :class => 'btn btn-primary'
-    .col-sm-2
+    .row
+      = devise_error_messages!
+      .col-sm-2
+      .col-sm-8
+        .text-center
+          %h3.light-font-name.no-margin-bottom
+            Sign up for scotch club
+          %p.text-muted
+            %small
+              We'll have you rollin in no time!
+        .panel
+          .panel-body
+            .authform
+              = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
+                .form-group
+                  = f.label :email
+                  = f.email_field :email, :autofocus => true, class: 'form-control'
+                .form-group
+                  = f.label :first_name
+                  = f.search_field :first_name, class: 'form-control'
+                .form-group
+                  = f.label :last_name
+                  = f.search_field :last_name,  class: 'form-control'
+                .form-group
+                  = f.label :favorite_scotch
+                  = f.text_field :favorite_scotch, class: 'form-control'
+                .form-group
+                  = f.label :password
+                  = f.password_field :password, class: 'form-control'
+                .form-group
+                  = f.label :password_confirmation
+                  = f.password_field :password_confirmation, class: 'form-control'
+                %label
+                  Select Avatar
+                .alert.alert-warning
+                  %i.fa.fa-square
+                  %strong
+                    Heads up
+                  Try to make your avatar squareish
+                .form-group.margin-bottom
+                  = f.file_field :avatar
+                %hr
+                = f.submit 'Sign up', :class => 'btn btn-primary'
+      .col-sm-2
