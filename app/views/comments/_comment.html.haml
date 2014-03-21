@@ -3,6 +3,11 @@
 		=image_tag comment.user.avatar.url(:thumb), :class=>"quarter-margin-right img-circle", :style=>"width:30px;"
 	.media-body
 		%p.no-margin-bottom
+			%strong
+				=link_to comment.user do
+					=comment.user.first_name
+					=comment.user.last_name
+		%p.no-margin-bottom
 			%small
 				=comment.body
 %hr
