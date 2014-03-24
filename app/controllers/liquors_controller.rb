@@ -37,11 +37,6 @@ class LiquorsController < ApplicationController
 
   def edit
     @liquor = Liquor.find(params[:id])
-    if current_user && current_user.id == @liquor.user_id
-
-    else
-      redirect_to new_user_session_path
-    end
   end
 
 
@@ -56,6 +51,12 @@ class LiquorsController < ApplicationController
       # If save fails, redisplay the form so user can fix problems
       render('edit')
     end
+  end
+
+  def destroy
+    liquor = Liquor.find(params[:id])
+    liquor.destroy
+    redirect_to liquors_path, :notice => "Liquor Deleted"
   end
 
 

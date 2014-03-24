@@ -1,0 +1,9 @@
+- if current_user.present?
+	=link_to(edit_liquor_path) do
+		%i.fa.fa-cog
+		Edit
+		%hr.quarter-margin-top.quarter-margin-bottom
+	= link_to liquor, method: :delete, :confirm=>"Are you sure?" do
+		%i.fa.fa-trash-o
+		Delete
+		%hr.quarter-margin-top.quarter-margin-bottom

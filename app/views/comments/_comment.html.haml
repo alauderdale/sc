@@ -7,7 +7,15 @@
 				=link_to comment.user do
 					=comment.user.first_name
 					=comment.user.last_name
-		%p.no-margin-bottom
-			%small
-				=comment.body
+		%p.half-margin-bottom
+			=comment.body
+		%p.text-muted.micro-text
+			= comment.created_at.strftime("%B %d, %Y")
+			- if current_user.present?
+				-if current_user.id.to_i == comment.user_id.to_i
+					|
+					\#{link_to 'Delete', liquor_comment_path(@liquor, comment), :confirm => 'Are you sure?', :method => :delete}
+					|
+					= link_to (edit_liquor_comment_path(@liquor, comment)) do
+						Edit
 %hr
