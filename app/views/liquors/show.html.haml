@@ -1,13 +1,22 @@
 %section
 	.container
 		.row
-			.col-sm-9
+			.col-sm-12
 				.row
 					.col-sm-9
-						.panel.double-margin-bottom
+						.panel.margin-bottom
 							.panel-body
 								.padded
 									=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
+					.col-sm-3
+						.margin-bottom
+							=render partial: 'show_actions', locals:{:liquor => @liquor}
+				.row
+					.col-sm-9
+						.page-header
+							%p.no-margin-bottom
+								%strong
+									Comments
 						-@liquor.comments.each do |c|
 							=render partial: 'comments/comment', locals:{:comment => c}
 						- if current_user.present?
@@ -20,5 +29,3 @@
 									= f.text_area :body, :rows => 9, :required => true, :class=>"form-control"
 								= submit_tag("Post comment", :class=>"btn btn-primary margin-bottom")
 					.col-sm-3
-						=render partial: 'show_actions', locals:{:liquor => @liquor}
-			.col-sm-3
