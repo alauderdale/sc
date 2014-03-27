@@ -28,8 +28,8 @@
 			.col-lg-12
 				.page-header.no-margin-top
 					%p.no-margin-bottom
-						Members
-				-@users.each do |user|
+						Global Activity
+				-@check_ins.each do |c|
 					.panel
 						.panel-body
-							=render :partial => "users/user_thumb", :locals => {:user => user}
+							=render partial: 'check_ins/post', locals:{:check_in => c}

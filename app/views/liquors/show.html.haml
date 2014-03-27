@@ -8,24 +8,32 @@
 							.panel-body
 								.padded
 									=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
+									%a{"data-toggle"=>"modal", :href=>"#checkInModal"}
+										Check in 
 					.col-sm-3
 						.margin-bottom
 							=render partial: 'show_actions', locals:{:liquor => @liquor}
 				.row
 					.col-sm-9
-						.page-header
-							%p.no-margin-bottom
-								%strong
-									Comments
-						-@liquor.comments.each do |c|
-							=render partial: 'comments/comment', locals:{:comment => c}
-						- if current_user.present?
-							.page-header
-								%p.no-margin-bottom
-									%strong
-										Add a new comment
-							= form_for([@liquor, @liquor.comments.build]) do |f|
-								.form-group
-									= f.text_area :body, :rows => 9, :required => true, :class=>"form-control"
-								= submit_tag("Post comment", :class=>"btn btn-primary margin-bottom")
+						.panel
+							.panel-body
+								.padded
+									.page-header.no-margin-top
+										%p.no-margin-bottom
+											%strong
+												Global Recent Activity
+									-@liquor.check_ins.each do |c|
+										=render partial: 'check_ins/post', locals:{:check_in => c}
+										%hr
+
 					.col-sm-3
+
+#checkInModal.modal.fade{"aria-hidden" => "true", role: "dialog"}
+	.modal-dialog
+		.modal-content
+			.modal-header
+				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+				%h4.no-margin-bottom.modal-title 
+					Check-In
+			.modal-body
+				=render partial: 'check_ins/check_in_form'

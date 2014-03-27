@@ -2,8 +2,10 @@
 	.col-sm-2
 		=image_tag liquor.liquor_image.url(:thumb), :class=>"img-responsive full-width thumbnail"
 	.col-sm-10
-		=link_to liquor do 
-			%h4
+		%h4
+			=link_to liquor do 
 				=liquor.name
 		%p
 			=liquor.description
+		%p
+			=render partial: 'shared/rating_small', locals:{:item => liquor.average_rating}

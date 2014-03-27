@@ -1,0 +1,32 @@
+class CheckInsController < ApplicationController
+	before_filter :authenticate_user!
+
+	def create
+	  @liquor = Liquor.find_by_id(params[:liquor_id])
+	  @check_in = CheckIn.new(check_in_params)
+	  @check_in.liquor_id = @liquor.id
+	  @check_in.user_id = current_user.id
+	  if @check_in.save
+	      respond_to do |format|
+	          format.html { redirect_to liquor_path(@liquor), :notice => "Your rating has been saved" }
+	          format.js
+	      end
+	  end
+	end
+
+  def update
+      @liquor = Liquor.find_by_id(params[:liquor_id])
+
+      @check_in = current_user.check_ins.find_by_liquor_id(@liquor.id)
+      if @check_in.update_attributes(check_in_params)
+          respond_to do |format|
+              format.html { redirect_to liquor_path(@liquor), :notice => "Your rating has been updated" }
+              format.js
+          end
+      end
+  end
+
+   def check_in_params
+    params.fetch(:check_in, {}).permit(:body, :rating, :user_id, :liquor_id)
+  end
+end

@@ -114,11 +114,11 @@ $secondary-color: #e48e1e;
 $medium-gray-color: #f2f2f2;
 $light-gray-color: #fafafa;
 $gray-color:#dddddd;
-$text-color: #444;
+$text-color: #000;
 $black-color:#2a2929;
 
 
-$link-color:#7D7A75;
+$link-color:#cc6600;
 
 // font vars
 
@@ -221,7 +221,6 @@ h6{
 }
 p{
   font-family:$paragraph-font-name;
-  color:#666;
 }
 
 p  {font-size: 1em; line-height:$baseline;}
@@ -600,73 +599,52 @@ section{
 
 //applet thumbnail panel
 
-.applet-panel{
-  cursor:pointer;
-  .panel-footer{
-    background-color:$light-gray-color!important;
-    cursor:pointer;
-  }
-  .panel-body{
-    background-color:$light-gray-color;
-  }
-  a{
-    &.accordion-toggle-link{
-      color:$primary-color;
-      width:100%;
-      display:block;
-      .toggle-link-text{
-        margin:0;
-        &:before{
-          content:"Hide"!important;
-        }
-      }
-      i{
-        opacity:.5;
-      }
-      &:hover{
-        i{
-          opacity:1;
-        }
-      }
-      &.collapsed{
-        .toggle-link-text{
-          &:before{
-            content:"Show"!important;
-          }
-        }
-        i{
-          @include transform(rotate(180deg));
-        }
-      }
-    }
-  }
-  ul{
-    li{
-      border-right:none;
-      border-left:none;
-      background-color:$light-gray-color!important;
-      padding:0;
-      font-size:.9em;
-      &:hover{
-        background-color:white!important;
-      }
-      a{
-        display:block;
-        color:#aaa;
-        padding: 10px 15px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow:hidden;
-        font-weight:bold;
-        margin-left:20px;
-      }
-    }
-  }
-  &.applet-panel-locked{
-    opacity:.5;
-    cursor:not-allowed;
+//wells
+
+.well{
+  &.comment{
+    background-color:white;
   }
 }
+
+//ratings
+
+.rating_small{
+  width: 150px;
+  height:28px;
+  background-image:image-url('ratings_small.png');
+  &.r1{
+    background-position-y:-32px;
+  }
+  &.r2{
+    background-position-y:-64px;
+  }
+  &.r3{
+    background-position-y:-94px;
+  }
+  &.r4{
+    background-position-y:-128px;
+  }
+  &.r5{
+    background-position-y:-163px;
+  }
+  &.r6{
+    background-position-y:-196px;
+  }
+  &.r7{
+    background-position-y:-231px;
+  }
+  &.r8{
+    background-position-y:-268px;
+  }
+  &.r9{
+    background-position-y:-303px;
+  }
+  &.r10{
+    background-position-y:-336px;
+  }
+}
+
 
 //nav
 

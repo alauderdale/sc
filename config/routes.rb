@@ -2,6 +2,8 @@ ScotchClub::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :relationships, only: [:create, :destroy]
+  resources :check_ins
+  devise_for :check_ins
   resources :users do
     member do
       get :following, :followers

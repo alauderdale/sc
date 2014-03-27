@@ -1,18 +1,27 @@
 %section
 	.container
-		.col-lg-12
-			=render :partial => "user_info", :locals => {:user => @user}
-			.clearfix
-			%hr
-			-if current_user
-				- unless current_user==(@user)
-					#follow_form
-						- if current_user.following?(@user)
-							= form_for(current_user.relationships.find_by_followed_id(@user), |
-                html: { method: :delete }) do |f|                                |
-								= f.submit "Following", class: "btn"
-						- else
-							= form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
-								%div= f.hidden_field :followed_id
+		.row
+			.col-lg-12
+				=render :partial => "user_info", :locals => {:user => @user}
+				.clearfix
+				%hr
+				-if current_user
+					- unless current_user==(@user)
+						#follow_form
+							- if current_user.following?(@user)
+								= form_for(current_user.relationships.find_by_followed_id(@user), |
+	                html: { method: :delete }) do |f|                                |
+									= f.submit "Following", class: "btn"
+							- else
+								= form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
+									%div= f.hidden_field :followed_id
 
-								= f.submit "+ Follow", class: "btn btn-success"
+									= f.submit "+ Follow", class: "btn btn-success"
+		.row
+			.col-sm-12
+				.panel
+					.panel-body
+						.padded
+							-@user.check_ins.each do |c|
+								=render partial: 'check_ins/post', locals:{:check_in => c}
+								%hr

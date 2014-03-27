@@ -1,0 +1,40 @@
+= form_for(check_in_ballot) do |f|
+	.form-group
+		= f.label 'Rating'
+	.form-group
+		= f.label("value_1", content_tag(:span, '1'), {:class=>"rating", :id=>"1"})
+		= radio_button_tag("check_in[rating]", 1, current_user_check_in == 1, :class => 'rating_button')
+
+		= f.label("value_2", content_tag(:span, '2'), {:class=>"rating", :id=>"2"})
+		= radio_button_tag("check_in[rating]", 2, current_user_check_in == 2, :class => 'rating_button')
+
+		= f.label("value_3", content_tag(:span, '3'), {:class=>"rating", :id=>"3"})
+		= radio_button_tag("check_in[rating]", 3, current_user_check_in == 3, :class => 'rating_button')
+
+		= f.label("value_4", content_tag(:span, '4'), {:class=>"rating", :id=>"4"})
+		= radio_button_tag("check_in[rating]", 4, current_user_check_in == 4, :class => 'rating_button')
+
+		= f.label("value_5", content_tag(:span, '5'), {:class=>"rating", :id=>"5"})
+		= radio_button_tag("check_in[rating]", 5, current_user_check_in == 5, :class => 'rating_button')
+
+		= f.label("value_6", content_tag(:span, '6'), {:class=>"rating", :id=>"6"})
+		= radio_button_tag("check_in[rating]", 6, current_user_check_in == 6, :class => 'rating_button')
+
+		= f.label("value_7", content_tag(:span, '7'), {:class=>"rating", :id=>"7"})
+		= radio_button_tag("check_in[rating]", 7, current_user_check_in == 7, :class => 'rating_button')
+
+		= f.label("value_8", content_tag(:span, '8'), {:class=>"rating", :id=>"8"})
+		= radio_button_tag("check_in[rating]", 8, current_user_check_in == 8, :class => 'rating_button')
+
+		= f.label("value_9", content_tag(:span, '9'), {:class=>"rating", :id=>"9"})
+		= radio_button_tag("check_in[rating]", 9, current_user_check_in == 9, :class => 'rating_button')
+
+		= f.label("value_10", content_tag(:span, '10'), {:class=>"rating", :id=>"10"})
+		= radio_button_tag("check_in[rating]", 10, current_user_check_in == 10, :class => 'rating_button')
+
+	.form-group
+		= f.label 'What did you think?'
+		= f.text_area :body, :rows => 5, class: 'form-control margin-bottom'
+	.form-group
+		= hidden_field_tag("liquor_id", @liquor.id)
+	= f.submit "Confirm", :class=>"btn btn-primary"

@@ -16,6 +16,7 @@ gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 gem 'figaro'
 gem 'haml-rails'
+gem 'acts_as_votable', '~> 0.8.0'
 gem 'simple_form'
 gem 'thin'
 group :development, :test do
