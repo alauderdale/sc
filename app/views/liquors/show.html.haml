@@ -25,8 +25,8 @@
 										%p.no-margin-bottom
 											%strong
 												Global Recent Activity
-									-if @liquor.check_ins.count > 0
-										-@liquor.check_ins.each do |c|
+									-if @check_ins.count > 0
+										-@check_ins.each do |c|
 											=render partial: 'check_ins/post', locals:{:check_in => c}
 											%hr
 									-else

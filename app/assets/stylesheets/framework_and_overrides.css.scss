@@ -110,7 +110,7 @@ img {
 // color vars
 
 $primary-color: #e48e1e;
-$secondary-color: #e48e1e;
+$secondary-color: #ffcc00;
 $medium-gray-color: #f2f2f2;
 $light-gray-color: #fafafa;
 $gray-color:#dddddd;
@@ -558,19 +558,12 @@ a{
   font-family:$bold-font-name;
   @include transition-duration(.3s);
   font-size:1em;
-  color:white!important;
+
   &.btn-primary{
     background-color:tint($secondary-color,10%);
     border-color:tint($secondary-color,10%)!important;
     &:hover{
       background-color:tint($secondary-color,20%)!important;
-    }
-  }
-  &.btn-default{
-    background-color:$primary-color;
-    border-color:shade($primary-color,30%);
-    &:hover{
-      background-color:shade($primary-color,20%)!important;
     }
   }
   &.btn-wire{
@@ -647,8 +640,9 @@ section{
 
 .rating-button-group{
   label{
+    color:shade($secondary-color,30%);
     &.btn:active, &.btn.active{
-      background-color:shade($primary-color,50%)!important;
+      background-color:shade(white,10%)!important;
     }
   }
 }

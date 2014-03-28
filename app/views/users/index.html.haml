@@ -1,16 +1,14 @@
-/ %h3 Users
-/ %ul.users
-/ 	- @users.each do |user|
-/ 		%li
-/ 			= link_to user.email, user
-/ 			signed up #{user.created_at.to_date}
-/ 		%li
-/ 			= user.admin
-
 %section
 	.container
-		.col-lg-12
-			- @users.each do |user|
-				=render :partial => "user_thumb", :locals => {:user => user}
-				.clearfix
-				%hr
+		.row
+			.col-lg-12
+				.panel
+					.panel-body
+						.padded
+							.page-header.no-margin-top
+								%h4.no-margin-bottom
+									Members
+							- @users.each do |user|
+								=render :partial => "user_thumb", :locals => {:user => user}
+								.clearfix
+								%hr

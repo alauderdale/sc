@@ -7,6 +7,7 @@ class LiquorsController < ApplicationController
   def show
     @liquor = Liquor.find(params[:id])
     @comment = Comment.new( :liquor => @liquor )
+    @check_ins = @liquor.check_ins.order('created_at desc')
   end
 
 	def new

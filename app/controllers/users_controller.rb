@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @check_ins = @user.check_ins.order('created_at desc')
   end
 
   def following

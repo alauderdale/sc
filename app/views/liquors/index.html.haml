@@ -6,8 +6,9 @@
 					.panel-body
 						.padded
 							.page-header.no-margin-top
-								%h3.no-margin-bottom
-									Top Rated
+								.page-header.no-margin-top
+									%h4.no-margin-bottom
+										Scotch List
 							-@liquors.each do |l|
 								.margin-bottom
 									=render partial: 'liquor_thumb_medium', locals:{:liquor => l}

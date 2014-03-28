@@ -16,7 +16,7 @@
 								= form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
 									%div= f.hidden_field :followed_id
 
-									= f.submit "+ Follow", class: "btn btn-success"
+									= f.submit "+ Follow", class: "btn btn-primary"
 		.row
 			.col-sm-12
 				.panel
@@ -26,8 +26,8 @@
 								%h4.no-margin-bottom
 									=@user.first_name.possessive
 									Recent Activity
-							-if @user.check_ins.count > 0
-								-@user.check_ins.each do |c|
+							-if @check_ins.count > 0
+								-@check_ins.each do |c|
 									=render partial: 'check_ins/post', locals:{:check_in => c}
 									%hr
 							-else
