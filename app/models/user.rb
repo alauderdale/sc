@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_many :liquors
-  has_many :comments, dependent: :destroy
   has_many :check_ins, :dependent => :destroy
   has_many :checked_in_liquors, :through => :check_ins, :source => :liquors
 

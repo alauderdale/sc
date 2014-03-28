@@ -12,7 +12,6 @@ ScotchClub::Application.routes.draw do
   
   devise_for :liquors
   resources :liquors do
-    resources :comments
   end
 
   namespace :admin do 
