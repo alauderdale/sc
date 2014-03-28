@@ -1,6 +1,6 @@
 - if user_signed_in?
 	%li= link_to 'Members', users_path
-	%li= link_to 'Scotch List', liquors_path
+	%li= link_to 'Scotch Book', liquors_path
 	%li= link_to '+ New Scotch', new_liquor_path
 	- if current_user.admin
 		%li= link_to 'Admin', admin_path
