@@ -4,11 +4,10 @@
 			.col-lg-12
 				.panel
 					.panel-body
-						.padded
-							.page-header.no-margin-top
-								%h4.no-margin-bottom
-									Members
-							- @users.each do |user|
-								=render :partial => "user_thumb", :locals => {:user => user}
-								.clearfix
-								%hr
+						.page-header.no-margin-top
+							%h4.no-margin-bottom
+								Members
+						- @users.each do |user|
+							=render :partial => "user_thumb", :locals => {:user => user}
+							.clearfix
+							%hr

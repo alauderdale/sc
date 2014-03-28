@@ -6,11 +6,10 @@
 					.col-sm-9
 						.panel.margin-bottom
 							.panel-body
-								.padded
-									.margin-bottom
-										=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
-									%a.btn.btn-primary{"data-toggle"=>"modal", :href=>"#checkInModal", :rel=>"tooltip", "data-original-title"=>"Check-in this scotch", "data-placement"=>"bottom"}
-										%i.fa.fa-plus{:style=>"font-size:2em;"}
+								.margin-bottom
+									=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
+								%a.btn.btn-primary{"data-toggle"=>"modal", :href=>"#checkInModal", :rel=>"tooltip", "data-original-title"=>"Check-in this scotch", "data-placement"=>"bottom"}
+									%i.fa.fa-plus{:style=>"font-size:2em;"}
 
 
 					.col-sm-3
@@ -20,18 +19,17 @@
 					.col-sm-9
 						.panel
 							.panel-body
-								.padded
-									.page-header.no-margin-top
-										%p.no-margin-bottom
-											%strong
-												Global Recent Activity
-									-if @check_ins.count > 0
-										-@check_ins.each do |c|
-											=render partial: 'check_ins/post', locals:{:check_in => c}
-											%hr
-									-else
-										%p.text-muted
-											No activity to show
+								.page-header.no-margin-top
+									%p.no-margin-bottom
+										%strong
+											Global Recent Activity
+								-if @check_ins.count > 0
+									-@check_ins.each do |c|
+										=render partial: 'check_ins/post', locals:{:check_in => c}
+										%hr
+								-else
+									%p.text-muted
+										No activity to show
 
 					.col-sm-3
 
