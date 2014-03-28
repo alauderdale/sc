@@ -25,9 +25,13 @@
 										%p.no-margin-bottom
 											%strong
 												Global Recent Activity
-									-@liquor.check_ins.each do |c|
-										=render partial: 'check_ins/post', locals:{:check_in => c}
-										%hr
+									-if @liquor.check_ins.count > 0
+										-@liquor.check_ins.each do |c|
+											=render partial: 'check_ins/post', locals:{:check_in => c}
+											%hr
+									-else
+										%p.text-muted
+											No activity to show
 
 					.col-sm-3
 
