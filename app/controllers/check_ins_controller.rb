@@ -8,7 +8,7 @@ class CheckInsController < ApplicationController
 	  @check_in.user_id = current_user.id
 	  if @check_in.save
 	      respond_to do |format|
-	          format.html { redirect_to liquor_path(@liquor), :notice => "Drink Up, you have checked-in!" }
+	          format.html { redirect_to liquor_path(@liquor), :notice => "Drink Up, you have checked-in with #{@liquor.name}!" }
 	          format.js
 	      end
 	  end

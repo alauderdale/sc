@@ -10,6 +10,7 @@ class LiquorsController < ApplicationController
     @check_ins = @liquor.check_ins.order('created_at desc')
   end
 
+
 	def new
     if current_user
       @liquor = Liquor.new
