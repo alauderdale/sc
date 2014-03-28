@@ -38,7 +38,7 @@ class CheckInsController < ApplicationController
 
   def show
     @check_in = CheckIn.find(params[:id])
-    @comments = @check_in.comment_threads.order('created_at desc')
+    @comments = @check_in.comment_threads.order('created_at asc')
     @new_comment = Comment.build_from(@check_in, current_user, "")
   end
 end
