@@ -109,6 +109,7 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.3)
+    possessive (1.0.1)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -191,6 +192,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.1)
   pg
+  possessive
   quiet_assets
   rails (= 4.0.0)
   rails_layout

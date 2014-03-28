@@ -7,7 +7,7 @@
 				%hr
 				-if current_user
 					- unless current_user==(@user)
-						#follow_form
+						#follow_form.margin-bottom
 							- if current_user.following?(@user)
 								= form_for(current_user.relationships.find_by_followed_id(@user), |
 	                html: { method: :delete }) do |f|                                |
@@ -22,6 +22,13 @@
 				.panel
 					.panel-body
 						.padded
-							-@user.check_ins.each do |c|
-								=render partial: 'check_ins/post', locals:{:check_in => c}
-								%hr
+							.page-header.no-margin-top
+								%h4.no-margin-bottom
+									=@user.first_name.possessive
+									Recent Activity
+							-if @user.check_ins.count > 0
+								-@user.check_ins.each do |c|
+									=render partial: 'check_ins/post', locals:{:check_in => c}
+									%hr
+							-else
+								No Activity to show

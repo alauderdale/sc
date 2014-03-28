@@ -20,4 +20,5 @@
 							Favorite scotch:
 						=user.favorite_scotch
 	.col-sm-6
-		=render :partial =>"shared/stats" , :locals => {:user => user}
+		.pull-right
+			=render :partial =>"shared/stats" , :locals => {:user => user}

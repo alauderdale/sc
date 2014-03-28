@@ -1,5 +1,5 @@
 -# navigation styled for Bootstrap 3.0
-%nav.navbar.navbar-default.navbar-fixed-top.main-nav
+%nav.navbar.navbar-default.navbar-fixed-top.main-nav.navbar-inverse
   .container
     .row
       .col-lg-12
@@ -9,7 +9,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to root_path,  class: 'navbar-brand margin-right' do
+          = link_to root_path,  class: 'navbar-brand margin-', :style=>"margin-right:30px!important;" do
             .logo
         .collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-left

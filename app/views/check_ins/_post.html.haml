@@ -1,20 +1,28 @@
-.media-object
-	.pull-left
-		=image_tag check_in.user.avatar.url(:xs), :class=>"img-circle half-margin-right"
-	.media-body
-		%p
-			=link_to check_in.user do
-				=check_in.user.first_name
-				=check_in.user.last_name
-			is enjoying a
-			=link_to check_in.liquor do
-				=check_in.liquor.name
-		.well.comment.half-margin-bottom
-			%p
-				=check_in.body
-			=render partial: 'shared/rating_small', locals:{:item => check_in.rating}
+.row
+	.col-xs-10
+		.media-object
+			.pull-left
+				=image_tag check_in.user.avatar.url(:xs), :class=>"img-circle half-margin-right"
+			.media-body
+				%p
+					=link_to check_in.user do
+						=check_in.user.first_name
+						=check_in.user.last_name
+					is enjoying a
+					=link_to check_in.liquor do
+						=check_in.liquor.name
+				.well.comment.half-margin-bottom
+					%p
+						=check_in.body
+					=render partial: 'shared/rating_small', locals:{:item => check_in.rating}
 
-		%p.text-muted.micro-text
-			=time_ago_in_words(check_in.updated_at)
-			ago
-.clearfix
+				%p.text-muted.micro-text
+					=time_ago_in_words(check_in.updated_at)
+					ago
+				- if current_user.present?
+					-if current_user.id == check_in.user_id
+						%p.micro-text
+							= link_to 'Delete Check-In', (check_in),:confirm => 'Are you sure?', :method => :delete
+		
+	.col-xs-2
+		=image_tag check_in.liquor.liquor_image.url(:thumb)

@@ -8,7 +8,7 @@ class CheckInsController < ApplicationController
 	  @check_in.user_id = current_user.id
 	  if @check_in.save
 	      respond_to do |format|
-	          format.html { redirect_to liquor_path(@liquor), :notice => "Your rating has been saved" }
+	          format.html { redirect_to liquor_path(@liquor), :notice => "Drink Up, you have checked-in!" }
 	          format.js
 	      end
 	  end
@@ -24,6 +24,12 @@ class CheckInsController < ApplicationController
               format.js
           end
       end
+  end
+
+  def destroy
+    @check_in = CheckIn.find(params[:id])
+    @check_in.destroy
+    redirect_to :back , :notice => "Check In Deleted"
   end
 
    def check_in_params

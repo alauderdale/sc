@@ -1,5 +1,5 @@
 class LiquorsController < ApplicationController
-
+  before_filter :authenticate_user!
   def index
     @liquors = Liquor.order('name asc')
   end

@@ -144,12 +144,12 @@ body{
   font-size:16px;
   color: $text-color;
   //for fixed navbar
-  padding-top:50px;
+  padding-top:68px;
   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
   -webkit-text-size-adjust: 100%;
   width:100%;
   line-height: $baseline;
-  background:#fafafa;
+  background:#f7f5ef;
 }
 
 //fonts
@@ -652,16 +652,35 @@ section{
 
 .main-nav{
   min-height:inherit!important;
-  background-color:white!important;
   a.navbar-brand{
     width:150px;
-    height:30px;
+    height:55px;
     margin:0!important;
     padding:0;
     margin-top:$baseline/2!important;
     background-size:99.9%;
     background-image:image-url('logo.png');
     background-repeat:no-repeat;
+  }
+  .navbar-toggle{
+    margin-top:15px;
+    margin-right:0px;
+  }
+  ul{
+    &.navbar-nav{
+      margin-top:9px;
+      li{
+        font-family:$bold-font-name;
+        font-size:.8em;
+        text-transform:uppercase;
+        a{
+
+        }
+      }
+      .dropdown-toggle{
+        padding-bottom:25px;
+      }
+    }
   }
 }
 
@@ -709,7 +728,7 @@ section{
 }
 
 
-//bootstrap overrides
+//bootstrap component overrides
 
 .panel{
   border:none;
@@ -721,6 +740,18 @@ section{
     left:-232px!important;
     .arrow{
       left:247px!important;
+    }
+  }
+}
+
+.alert{
+  border-radius:0px!important;
+  &.alert-success{
+    background-color:shade($link-color,30%);
+    border:shade($link-color,30%);
+    color:white;
+    .close{
+      color:white;
     }
   }
 }
