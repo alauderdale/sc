@@ -5,14 +5,12 @@
 			.col-lg-6
 				.panel
 					.panel-body
-						.padded
-							=render partial: 'check_ins/detail', locals:{:check_in => @check_in}
+						=render partial: 'check_ins/detail', locals:{:check_in => @check_in}
 				.panel
 					.panel-body
-						.padded
-							.page-header.no-margin-top
-								%h4.no-margin-bottom
-									Comments
-							= render :partial => 'comments/comment', :collection => @comments, :as => :comment
-							= render :partial => 'comments/form', :locals => { :comment => @new_comment }
+						.page-header.no-margin-top
+							%h4.no-margin-bottom
+								Comments
+						= render :partial => 'comments/comment', :collection => @comments, :as => :comment
+						= render :partial => 'comments/form', :locals => { :comment => @new_comment }
 			.col-lg-3
