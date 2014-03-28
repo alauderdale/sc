@@ -23,10 +23,6 @@
 					%p.text-muted.micro-text
 						=time_ago_in_words(check_in.updated_at)
 						ago
-					- if current_user.present?
-						=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
-				.margin-bottom
-					= render :partial => 'comments/comment', :collection => check_in.comment_threads.last(3), :as => :comment
 
 
 		

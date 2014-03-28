@@ -1,6 +1,8 @@
-.comment-form
-	= simple_form_for comment, :remote => true do |f|
-		= f.input :body, :input_html => { :rows => "2" }, :label => false
-		= f.input :commentable_id, :as => :hidden, :value => comment.commentable_id
-		= f.input :commentable_type, :as => :hidden, :value => comment.commentable_type
-		= f.button :submit, :class => "btn btn-primary", :disable_with => "Submitting…"
+#comment-form.comment-form.margin-top
+	= simple_form_for comment,:html => { :role => 'form', :multipart => true}, :remote => true do |f|
+		.form-group
+			= f.input :body, :input_html => { :rows => "3", :class=>"form-control", :placeholder=>"leave a comment...", :required => true}, :label => false
+			= f.input :commentable_id, :as => :hidden, :value => comment.commentable_id
+			= f.input :commentable_type, :as => :hidden, :value => comment.commentable_type
+			.pull-right.margin-top
+				= f.button :submit, :class => "btn btn-primary", :disable_with => "Submitting…"

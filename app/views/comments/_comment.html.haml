@@ -1,7 +1,19 @@
-%div.comment{ :id => "comment-#{comment.id}" }
-  %hr
-  = link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close'
-  %h4
-    = comment.user.first_name
-    %small= comment.updated_at
-  %p= comment.body
+.media-object.comment{ :id => "comment-#{comment.id}" }
+	.pull-left
+		=image_tag comment.user.avatar.url(:thumb), :class=>"quarter-margin-right img-circle", :style=>"width:30px;"
+	.media-body
+		%p.no-margin-bottom
+			%small
+				=link_to comment.user do
+					=comment.user.first_name
+					=comment.user.last_name
+				\:
+				=comment.body
+		%p.text-muted.micro-text.no-margin-bottom
+			%span.half-margin-right
+				=time_ago_in_words(comment.updated_at)
+			- if current_user.present?
+				-if current_user.id.to_i == comment.user_id.to_i
+					= link_to "Delete", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "Deleteing..."
+					
+	%hr.quarter-margin-top.quarter-margin-bottom
