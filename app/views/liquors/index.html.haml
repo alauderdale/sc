@@ -9,5 +9,5 @@
 								%h3.no-margin-bottom
 									Top Rated
 							-@liquors.each do |l|
-								=render partial: 'liquor_thumb_medium', locals:{:liquor => l}
-								%hr
+								.margin-bottom
+									=render partial: 'liquor_thumb_medium', locals:{:liquor => l}

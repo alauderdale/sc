@@ -22,7 +22,8 @@
                     =image_tag current_user.avatar.url(:xs), :class=>"img-circle"
                   %b.caret
                 %ul.dropdown-menu
-                  %li= link_to 'Edit account', edit_user_registration_path
+                  %li= link_to 'My Profile', current_user
+                  %li= link_to 'Account Info', edit_user_registration_path
                   %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
 
 

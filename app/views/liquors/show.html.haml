@@ -7,8 +7,10 @@
 						.panel.margin-bottom
 							.panel-body
 								.padded
-									=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
-									%a{"data-toggle"=>"modal", :href=>"#checkInModal"}
+									.margin-bottom
+										=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
+									%a.btn.btn-primary{"data-toggle"=>"modal", :href=>"#checkInModal"}
+										%i.fa.fa-check
 										Check in 
 					.col-sm-3
 						.margin-bottom
