@@ -18,6 +18,8 @@ gem 'aws-sdk'
 gem 'figaro'
 gem 'haml-rails'
 gem 'acts_as_votable', '~> 0.8.0'
+gem 'acts_as_commentable'
+gem 'acts_as_commentable_with_threading'
 gem 'simple_form'
 gem 'thin'
 group :development, :test do

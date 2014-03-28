@@ -29,10 +29,16 @@ class CheckInsController < ApplicationController
   def destroy
     @check_in = CheckIn.find(params[:id])
     @check_in.destroy
-    redirect_to :back , :notice => "Check In Deleted"
+    redirect_to root_path , :notice => "Check In Deleted"
   end
 
-   def check_in_params
+  def check_in_params
     params.fetch(:check_in, {}).permit(:body, :rating, :user_id, :liquor_id)
+  end
+
+  def show
+    @check_in = CheckIn.find(params[:id])
+    @comments = @check_in.comment_threads.order('created_at desc')
+    @new_comment = Comment.build_from(@check_in, current_user, "")
   end
 end
