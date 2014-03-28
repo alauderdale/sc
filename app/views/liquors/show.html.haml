@@ -9,9 +9,10 @@
 								.padded
 									.margin-bottom
 										=render partial: 'liquor_thumb_medium', locals:{:liquor => @liquor}
-									%a.btn.btn-primary{"data-toggle"=>"modal", :href=>"#checkInModal"}
-										%i.fa.fa-check
-										Check in 
+									%a.btn.btn-primary{"data-toggle"=>"modal", :href=>"#checkInModal", :rel=>"tooltip", "data-original-title"=>"Check-in this scotch", "data-placement"=>"bottom"}
+										%i.fa.fa-plus{:style=>"font-size:2em;"}
+
+
 					.col-sm-3
 						.margin-bottom
 							=render partial: 'show_actions', locals:{:liquor => @liquor}
@@ -35,7 +36,7 @@
 		.modal-content
 			.modal-header
 				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-				%h4.no-margin-bottom.modal-title 
+				%h4.no-margin-bottom.modal-title.light-font-name
 					Check-In
 			.modal-body
 				=render partial: 'check_ins/check_in_form'

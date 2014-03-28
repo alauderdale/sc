@@ -22,7 +22,10 @@
 		.border-right.display-block
 			%p.half-margin-top.text-muted
 				=liquor.check_ins.count 
-				ratings
+				-if liquor.check_ins.count == 1
+					rating
+				-else
+					ratings
 	.col-sm-4
 		%p.half-margin-top.text-muted
 			Added

@@ -645,6 +645,14 @@ section{
   }
 }
 
+.rating-button-group{
+  label{
+    &.btn:active, &.btn.active{
+      background-color:shade($primary-color,50%)!important;
+    }
+  }
+}
+
 
 //nav
 
