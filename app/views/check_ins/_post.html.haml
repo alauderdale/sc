@@ -26,7 +26,9 @@
 					- if current_user.present?
 						=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
 				.margin-bottom
-					= render :partial => 'comments/comment', :collection => check_in.comment_threads.last(3), :as => :comment
+					-if check_in.comment_threads.count > 0
+						.well
+							= render :partial => 'comments/comment', :collection => check_in.comment_threads.last(3), :as => :comment
 
 
 		
