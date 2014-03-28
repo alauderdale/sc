@@ -7,7 +7,7 @@
 				%hr
 				-if current_user
 					- unless current_user==(@user)
-						#follow_form.margin-bottom
+						#follow_form.margin-bottom.pull-right
 							- if current_user.following?(@user)
 								= form_for(current_user.relationships.find_by_followed_id(@user), |
 	                html: { method: :delete }) do |f|                                |
