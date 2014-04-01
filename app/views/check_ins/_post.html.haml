@@ -19,8 +19,8 @@
 							%p
 								=check_in.body
 						=render partial: 'shared/rating_small', locals:{:item => check_in.rating}
-					-if !(check_in.avatar.content_type =~ /^image/).nil?
-						=image_tag check_in.avatar.url, :class=>"margin-bottom"
+					-if !(check_in.check_in_photo.content_type =~ /^image/).nil?
+						=image_tag check_in.check_in_photo.url, :class=>"full-width margin-bottom"
 
 					%p.text-muted.micro-text
 						=time_ago_in_words(check_in.updated_at)
