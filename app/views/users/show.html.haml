@@ -18,7 +18,7 @@
 
 									= f.submit "+ Follow", class: "btn btn-primary"
 		.row
-			.col-sm-12
+			.col-sm-9
 				.panel
 					.panel-body
 						.page-header.no-margin-top
@@ -32,3 +32,11 @@
 						-else
 							%p.text-muted
 								No Activity to show
+			.col-sm-3
+				.panel
+					.panel-body
+						.page-header.no-margin-top
+							%h5.no-margin-bottom
+								Top Rated
+						- @user.check_ins.order('rating DESC').limit(3).each do |c|
+							=render partial: 'liquors/liquor_thumb_small', locals:{:liquor => c.liquor}

@@ -32,15 +32,5 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
   end
-
-  # def top_rated
-
-  #   @check_ins = self.check_ins.order('rating DESC').limit(3)
-  #   @check_ins.each do |check_in|
-  #     puts "cool"
-  #   end
-
-
-  # end
 	
 end
