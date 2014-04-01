@@ -30,7 +30,20 @@
 				.margin-bottom
 					-if check_in.comment_threads.count > 0
 						.well
-							= render :partial => 'comments/comment', :collection => check_in.comment_threads.last(3), :as => :comment
+							-if check_in.comment_threads.count > 3
+								%p.no-margin-bottom
+									%small
+										%a{:href=>"#{check_in_path(check_in)}#comment-form"}
+											%i.fa.fa-ellipsis-h
+											view all
+											= check_in.comment_threads.count
+											comments
+								%hr.half-margin-top.half-margin-bottom
+							= render :partial => 'comments/comment', :collection => check_in.comment_threads.order('created_at asc').last(3), :as => :comment
+							-if current_user.present?
+								= render :partial => 'comments/form', :locals => { :comment => Comment.build_from(check_in, current_user, "") }
+								.clearfix
+
 
 
 		

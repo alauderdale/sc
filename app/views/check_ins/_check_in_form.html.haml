@@ -40,13 +40,11 @@
 			= radio_button_tag("check_in[rating]", 10, current_user_check_in == 10, :class => 'rating_button')
 			10
 			%i.fa.fa-star
-	.row
-		.col-sm-9
-			.form-group
-				= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
-		.col-sm-3
-			.form-group.margin-bottom
-				= f.file_field :check_in_photo, :class=>"full-width"
+	.form-group
+		= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
+	.form-group.margin-bottom
+		=f.label 'Upload a photo for this check-in'
+		= f.file_field :check_in_photo, :class=>"full-width"
 	.form-group
 		= hidden_field_tag("liquor_id", @liquor.id)
 	= f.submit "Confirm", :class=>"btn btn-primary"

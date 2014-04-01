@@ -1,8 +1,8 @@
 %section
 	.container
 		.row
-			.col-lg-3
-			.col-lg-6
+			.col-sm-3
+			.col-sm-6
 				.panel
 					.panel-body
 						=render partial: 'check_ins/detail', locals:{:check_in => @check_in}
@@ -13,4 +13,4 @@
 								Comments
 						= render :partial => 'comments/comment', :collection => @comments, :as => :comment
 						= render :partial => 'comments/form', :locals => { :comment => @new_comment }
-			.col-lg-3
+			.col-sm-3
