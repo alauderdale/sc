@@ -32,7 +32,7 @@ class LiquorsController < ApplicationController
   end
 
   def liquor_params
-    params.require(:liquor).permit(:name, :description, :user_id, :liquor_image)
+    params.require(:liquor).permit(:name, :description, :user_id, :liquor_image, :age)
   end
 
   def edit

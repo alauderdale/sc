@@ -7,11 +7,11 @@
 				%hr
 				-if current_user
 					- unless current_user==(@user)
-						#follow_form.margin-bottom.pull-right
+						#follow_form.margin-bottom.pull-left
 							- if current_user.following?(@user)
 								= form_for(current_user.relationships.find_by_followed_id(@user), |
 	                html: { method: :delete }) do |f|                                |
-									= f.submit "Following", class: "btn"
+									= f.submit "Following", class: "btn btn-success"
 							- else
 								= form_for(current_user.relationships.build(followed_id: @user.id)) do |f|
 									%div= f.hidden_field :followed_id
@@ -38,5 +38,7 @@
 						.page-header.no-margin-top
 							%h5.no-margin-bottom
 								Top Rated
-						- @user.check_ins.order('rating DESC').limit(3).each do |c|
+						- @top_rated.each do |c|
 							=render partial: 'liquors/liquor_thumb_small', locals:{:liquor => c.liquor}
+
+
