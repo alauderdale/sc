@@ -808,3 +808,13 @@ section{
     }
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+//form zoom on divice fix
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+ select:focus, textarea:focus, input:focus {
+ font-size: 16px;
+  }
+ }
