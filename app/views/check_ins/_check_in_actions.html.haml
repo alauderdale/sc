@@ -1,10 +1,10 @@
 %p.micro-text
 	= link_to  (check_in) do
 		View Detailed Check-in
-		|
-	%a{:href=>"#{check_in_path(check_in)}#comment-form"}
-		%i.fa.fa-comment-o
-		Comment
+	/ 	|
+	/ %a{:href=>"#{check_in_path(check_in)}#comment-form"}
+	/ 	%i.fa.fa-comment-o
+	/ 	Comment
 	-if current_user.id == check_in.user_id
 		|
 		= link_to (check_in),:confirm => 'Are you sure?', :method => :delete do
