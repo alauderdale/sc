@@ -7,6 +7,9 @@
 				%h4.medium-font-name
 					=link_to liquor do 
 						=liquor.name
+				%p
+					=link_to liquor.distill do
+						=liquor.distill.name
 				-if liquor.age > 0
 					%p.text-muted
 						=liquor.age

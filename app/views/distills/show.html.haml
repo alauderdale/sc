@@ -1,0 +1,17 @@
+%section
+	.container
+		.row
+			.col-sm-12
+				=@distill.name
+	- if current_user.present?
+		=link_to(edit_distill_path) do
+			%i.fa.fa-cog
+			Edit
+			%hr.quarter-margin-top.quarter-margin-bottom
+		= link_to @distill, method: :delete, :confirm=>"Are you sure?" do
+			%i.fa.fa-trash-o
+			Delete
+			%hr.quarter-margin-top.quarter-margin-bottom
+							
+
+
