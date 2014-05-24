@@ -22,6 +22,7 @@
 			-if liquor.check_ins.count > 0
 				%p
 					=render partial: 'shared/rating_small', locals:{:item => liquor.average_rating}
+
 			-else
 				%p.half-margin-top.text-muted
 					No rating to show
