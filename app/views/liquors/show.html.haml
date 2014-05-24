@@ -13,8 +13,9 @@
 
 
 					.col-sm-3
-						.margin-bottom
-							=render partial: 'show_actions', locals:{:liquor => @liquor}
+						-if current_user.admin
+							.margin-bottom
+								=render partial: 'show_actions', locals:{:liquor => @liquor}
 				.row
 					.col-sm-9
 						.panel
