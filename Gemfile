@@ -22,12 +22,8 @@ gem 'acts_as_commentable'
 gem 'acts_as_commentable_with_threading'
 gem 'simple_form'
 gem 'thin'
-group :development, :test do
-  gem 'pg'
-end
-group :production do
-  gem 'pg'
-end
+gem 'pg'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

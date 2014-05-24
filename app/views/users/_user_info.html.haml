@@ -1,5 +1,5 @@
 .row
-	.col-sm-6
+	.col-sm-12
 		.media-object
 			.pull-left
 				=link_to user do
@@ -13,12 +13,3 @@
 					%small
 						Proud member since 
 						=user.created_at.strftime('%B %e, %Y')
-				%p
-					%small
-						%i.fa.fa-glass	
-						%strong
-							Favorite scotch:
-						=user.favorite_scotch
-	.col-sm-6
-		.pull-left.half-margin-top
-			=render :partial =>"shared/stats" , :locals => {:user => user}

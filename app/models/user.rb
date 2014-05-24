@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :liquors
   has_many :check_ins, :dependent => :destroy
-  has_many :checked_in_liquors, :through => :check_ins, :source => :liquors
+  has_many :checked_in_liquors, :through => :check_ins, :source => :liquor, :uniq => true
+
 
   def admin?
     admin

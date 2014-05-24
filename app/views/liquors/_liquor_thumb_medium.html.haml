@@ -7,6 +7,9 @@
 				%h4.medium-font-name
 					=link_to liquor do 
 						=liquor.name
+				%p
+					=link_to liquor.distill do
+						=liquor.distill.name
 				-if liquor.age > 0
 					%p.text-muted
 						=liquor.age
@@ -19,6 +22,7 @@
 			-if liquor.check_ins.count > 0
 				%p
 					=render partial: 'shared/rating_small', locals:{:item => liquor.average_rating}
+
 			-else
 				%p.half-margin-top.text-muted
 					No rating to show

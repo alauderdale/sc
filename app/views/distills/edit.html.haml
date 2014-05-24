@@ -1,0 +1,17 @@
+%section
+	.container
+		.row
+			.col-lg-12
+				%h1.text-center
+					Edit Distillery
+		.row
+			.col-sm-3
+			.col-sm-6
+				.panel
+					.panel-body
+						.padded
+							= form_for(:distill, :url => {:action => 'update_distill', :id=> @distill.id}, :html => { :multipart => true }) do |f| 
+								= render(:partial => 'form', :locals => {:f => f})
+								.form-buttons
+									= submit_tag("Update", :class=>"btn btn-primary") 
+			.col-sm-3

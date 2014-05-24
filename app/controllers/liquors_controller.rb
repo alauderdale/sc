@@ -11,10 +11,10 @@ class LiquorsController < ApplicationController
 
 
 	def new
-    if current_user
+    if current_user.admin
       @liquor = Liquor.new
     else
-      redirect_to new_user_session_path
+      redirect_to root_path, :notice => "Woa Woa Woa...I don't think so"
     end
   end
 
@@ -32,7 +32,7 @@ class LiquorsController < ApplicationController
   end
 
   def liquor_params
-    params.require(:liquor).permit(:name, :description, :user_id, :liquor_image, :age)
+    params.require(:liquor).permit(:name, :description, :user_id, :liquor_image, :age, :distill_id)
   end
 
   def edit
