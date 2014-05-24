@@ -12,3 +12,4 @@ puts 'DEFAULT USERS'
 # puts 'user: ' << user.email
 
 user = User.create first_name: 'Chicago' , last_name: 'Copenhagen' , email: 'john@doe.com' , password: 'beaker10' , password_confirmation: 'beaker10' , admin: true
+user2 = User.create first_name: 'Alex' , last_name: 'Lauderdale' , email: 'alauderdale@mac.com' , password: 'beaker10' , password_confirmation: 'beaker10' , admin: true
