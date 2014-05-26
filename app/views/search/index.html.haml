@@ -1,0 +1,23 @@
+%section
+	.container
+		.row
+			.col-sm-9
+				.panel
+					.panel-body
+						.page-header.no-margin-top
+							%h4.no-margin-bottom
+								Results for 
+								%span.extra-bold-font-name.primary-text-color
+									=@search
+						-@liquors.each do |l|
+							.margin-bottom
+								=render partial: '/liquors/liquor_thumb_medium', locals:{:liquor => l}
+			.col-sm-3
+				.panel
+					.panel-body
+						.page-header.no-margin-top
+							%h4.no-margin-bottom
+								Distilleries
+						-@distills.each do |d|
+							=link_to d do
+								=d.name

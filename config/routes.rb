@@ -5,6 +5,7 @@ ScotchClub::Application.routes.draw do
   resources :comments, :only => [:create, :destroy]
   resources :check_ins
   devise_for :check_ins
+  resources :search
   resources :users do
     member do
       get :following, :followers

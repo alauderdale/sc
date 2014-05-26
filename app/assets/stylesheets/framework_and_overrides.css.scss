@@ -115,7 +115,7 @@ $medium-gray-color: #f2f2f2;
 $light-gray-color: #fafafa;
 $gray-color:#dddddd;
 $text-color: #000;
-$black-color:#2a2929;
+$black-color:#222222;
 
 
 $link-color:#cc6600;
@@ -675,13 +675,24 @@ section{
       li{
         font-family:$bold-font-name;
         font-size:.8em;
-        text-transform:uppercase;
         a{
 
         }
       }
       .dropdown-toggle{
         padding-bottom:25px;
+      }
+    }
+    &.dropdown-menu{
+      background:$black-color;
+      li{
+        a{
+          color:#999;
+          &:hover{
+            background:none;
+            color:white;
+          }
+        }
       }
     }
   }
@@ -815,6 +826,6 @@ section{
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
  select:focus, textarea:focus, input:focus {
- font-size: 16px;
+ font-size: 14px;
   }
  }
