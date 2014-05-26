@@ -1,0 +1,12 @@
+.container.double-padding-top
+	-if @users.count > 0
+		-@users.each do |u|
+			.half-margin-bottom
+				=link_to u do
+					%p
+						=image_tag u.avatar.url(:thumb)
+						=u.first_name
+						=u.last_name
+	-else
+		%h5.text-center.muted
+			No Members
