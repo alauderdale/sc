@@ -1,12 +1,14 @@
-.container.double-padding-top
-	-if @users.count > 0
-		-@users.each do |u|
-			.half-margin-bottom
-				=link_to u do
-					%p
-						=image_tag u.avatar.url(:thumb)
-						=u.first_name
-						=u.last_name
-	-else
-		%h5.text-center.muted
-			No Members
+%section
+	.container
+		.row
+			.col-lg-12
+				.panel
+					.panel-body
+						.page-header.no-margin-top
+							%h4.no-margin-bottom
+								Results for 
+								%span.extra-bold-font-name.primary-text-color
+									=@search
+						-@liquors.each do |l|
+							.margin-bottom
+								=render partial: '/liquors/liquor_thumb_medium', locals:{:liquor => l}

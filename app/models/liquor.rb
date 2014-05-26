@@ -8,6 +8,12 @@ class Liquor < ActiveRecord::Base
 	validates_attachment_content_type :liquor_image, :content_type => /\Aimage\/.*\Z/
 
 
+	# It returns the articles whose titles contain one or more words that form the query
+  def self.search(query)
+    # where(:title, query) -> This would return an exact match of the query
+    where("name ilike ?", "%#{query}%") 
+  end 
+
 	def average_rating
 	    @value = 0
 	    self.check_ins.each do |rating|
