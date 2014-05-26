@@ -1,45 +1,7 @@
 = form_for(check_in_ballot) do |f|
-	.btn-group.margin-bottom.rating-button-group{'data-toggle'=>'buttons'}
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 1, current_user_check_in == 1, :class => 'rating_button')
-			1
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 2, current_user_check_in == 2, :class => 'rating_button')
-			2
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 3, current_user_check_in == 3, :class => 'rating_button')
-			3
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 4, current_user_check_in == 4, :class => 'rating_button')
-			4
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 5, current_user_check_in == 5, :class => 'rating_button')
-			5
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 6, current_user_check_in == 6, :class => 'rating_button')
-			6
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 7, current_user_check_in == 7, :class => 'rating_button')
-			7
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 8, current_user_check_in == 8, :class => 'rating_button')
-			8
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 9, current_user_check_in == 9, :class => 'rating_button')
-			9
-			%i.fa.fa-star
-		%label.btn.btn-default
-			= radio_button_tag("check_in[rating]", 10, current_user_check_in == 10, :class => 'rating_button')
-			10
-			%i.fa.fa-star
+	.form-group
+		= f.label 'rating'
+		= f.text_field :rating, class: 'form-control margin-bottom', placeholder:"rating 1-100"
 	.form-group
 		= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
 	.form-group.margin-bottom

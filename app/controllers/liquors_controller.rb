@@ -6,7 +6,7 @@ class LiquorsController < ApplicationController
 
   def show
     @liquor = Liquor.find(params[:id])
-    @check_ins = @liquor.check_ins.order('created_at desc')
+    @current_user_check_ins = @liquor.check_ins.where(user_id:current_user.id).order('created_at desc')
   end
 
 

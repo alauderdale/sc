@@ -11,6 +11,8 @@ class CheckInsController < ApplicationController
 	          format.html { redirect_to liquor_path(@liquor), :notice => "Drink Up, you have checked-in with #{@liquor.name}!" }
 	          format.js
 	      end
+    else
+      redirect_to :back, :notice => "Please check your entries and try again"
 	  end
 	end
 
@@ -29,7 +31,7 @@ class CheckInsController < ApplicationController
   def destroy
     @check_in = CheckIn.find(params[:id])
     @check_in.destroy
-    redirect_to root_path , :notice => "Check In Deleted"
+    redirect_to :back , :notice => "Check In Deleted"
   end
 
   def check_in_params

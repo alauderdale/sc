@@ -5,4 +5,5 @@ class CheckIn < ActiveRecord::Base
   validates_attachment_content_type :check_in_photo, :content_type => /\Aimage\/.*\Z/
   acts_as_commentable
   belongs_to :checked_in_liquors, class_name: "Liquor"
+  validates :rating, :numericality => { :less_than => 100 }
 end
