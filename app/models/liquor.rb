@@ -16,8 +16,8 @@ class Liquor < ActiveRecord::Base
 
 	def average_rating
 	    @value = 0
-	    self.check_ins.each do |rating|
-	        @value = @value + rating.rating
+	    self.check_ins.each do |check_in|
+	        @value = @value + check_in.rating
 	    end
 	    @total = self.check_ins.size
 	    @value.to_f / @total.to_f
