@@ -1,7 +1,20 @@
 = form_for(check_in_ballot) do |f|
+	
 	.form-group
-		= f.label 'rating'
-		= f.text_field :rating, class: 'form-control margin-bottom', placeholder:"rating 1-100"
+		= f.label 'Nose'
+		= f.text_field :nose_list, class: 'form-control margin-bottom'
+	.form-group
+		= f.label 'Nose Score'
+		= f.text_field :nose_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
+	.form-group
+		= f.label 'Taste Score'
+		= f.text_field :taste_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
+	.form-group
+		= f.label 'Finish Score'
+		= f.text_field :finish_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
+	.form-group
+		= f.label 'Balance Score'
+		= f.text_field :rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
 	.form-group
 		= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
 	.form-group.margin-bottom
