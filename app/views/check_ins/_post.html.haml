@@ -50,9 +50,39 @@
 / 	.col-xs-2
 / 		=image_tag check_in.liquor.liquor_image.url(:thumb)
 
-=check_in.body
+%h4.half-margin-bottom
+	The nose was
 %br
 - check_in.nose_list.map do |s|
 	=s
 	%br
+=check_in.nose_rating
+\/25
+%h4.half-margin-bottom
+	it tasted
+%br
+- check_in.taste_list.map do |s|
+	=s
+	%br
+=check_in.taste_rating
+\/25
+%h4.half-margin-bottom
+	The finish was
+%br
+- check_in.finish_list.map do |s|
+	=s
+	%br
+=check_in.taste_rating
+\/25
+%h4.half-margin-bottom
+	The balance was
+=check_in.rating
+\/25
+%h4.half-margin-bottom
+	I say...
+=check_in.body
+%h4.half-margin-bottom
+	Overall
+=total_score
+
 =render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}

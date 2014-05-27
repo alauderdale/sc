@@ -35,7 +35,7 @@ class CheckInsController < ApplicationController
   end
 
   def check_in_params
-    params.fetch(:check_in, {}).permit(:body, :rating, :user_id, :liquor_id, :check_in_photo, :nose_rating, :taste_rating, :finish_rating, :nose_list)
+    params.fetch(:check_in, {}).permit(:body, :rating, :user_id, :liquor_id, :check_in_photo, :nose_rating, :taste_rating, :finish_rating, :total_rating, { nose_list: [] }, { taste_list: [] }, :finish_list)
   end
 
   def show

@@ -6,15 +6,15 @@ class CheckIn < ActiveRecord::Base
   acts_as_commentable
   belongs_to :checked_in_liquors, class_name: "Liquor"
 
-  # #balance (overall)
-  # validates :rating, :numericality => { :less_than => 26 }
-  # #nose
-  # validates :nose_rating, :numericality => { :less_than => 26 }
-  # #taste
-  # validates :taste_rating, :numericality => { :less_than => 26 }
-  # #finish
-  # validates :finish_rating, :numericality => { :less_than => 26 }
+  #balance (overall)
+  validates :rating, :numericality => { :less_than => 26 }
+  #nose
+  validates :nose_rating, :numericality => { :less_than => 26 }
+  #taste
+  validates :taste_rating, :numericality => { :less_than => 26 }
+  #finish
+  validates :finish_rating, :numericality => { :less_than => 26 }
 
-  acts_as_taggable_on :noses
+  acts_as_taggable_on :noses, :tastes, :finishes
 
 end
