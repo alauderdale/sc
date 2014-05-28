@@ -1,48 +1,51 @@
-/ .row
-/ 	.col-xs-10
-/ 		.media-object
-/ 			.pull-left
-/ 				=image_tag check_in.user.avatar.url(:xs), :class=>"img-circle half-margin-right"
-/ 			.media-body
-/ 				%p
-/ 					=link_to check_in.user do
-/ 						=check_in.user.first_name
-/ 						=check_in.user.last_name
-/ 					is enjoying a
-/ 					=link_to check_in.liquor do
-/ 						=check_in.liquor.name
-/ 				.margin-top.margin-bottom
-/ 					.comment-bub-triangle
-/ 						&nbsp;
-/ 					.well.comment.half-margin-bottom
-/ 						-if check_in.body != ""
-/ 							%p
-/ 								=check_in.body
-/ 						=check_in.rating
-/ 					-if !(check_in.check_in_photo.content_type =~ /^image/).nil?
-/ 						=image_tag check_in.check_in_photo.url, :class=>"full-width margin-bottom"
+.panel
+	.panel-body
+		.media-object
+			.pull-left
+				=image_tag check_in.user.avatar.url(:xs), :class=>"img-circle half-margin-right", :style=>"width:40px;"
+			.media-body
+				%p.no-margin-bottom{:style=>"line-height:12pt; margin-top:3px;"}
+					%strong
+						=check_in.user.first_name
+						=check_in.user.last_name
+				%p.text-muted
+					%small
+						=time_ago_in_words(check_in.updated_at)
+						ago
+		%p.text-muted
+			=check_in.body
+		%h5.page-header.half-margin-bottom
+			Nose
+			%span.primary-text-color
+				=check_in.nose_rating
+			\/25
+		%p.text-muted
+			- check_in.nose_list.map do |s|
+				=s
+		%h5.page-header.half-margin-bottom
+			Taste
+			%span.primary-text-color
+				=check_in.taste_rating
+			\/25
+		%p.text-muted
+			- check_in.taste_list.map do |s|
+				=s
+		%h5.page-header.half-margin-bottom
+			Finish
+			%span.primary-text-color
+				=check_in.finish_rating
+			\/25
+		%p.text-muted
+			- check_in.finish_list.map do |s|
+				=s
+		%h5.page-header.half-margin-bottom
+			Balance
+			%span.primary-text-color
+				=check_in.rating
+			\/25
+		=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
 
-/ 					%p.text-muted.micro-text
-/ 						=time_ago_in_words(check_in.updated_at)
-/ 						ago
-/ 					- if current_user.present?
-/ 						=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
-/ 				.margin-bottom
-/ 					-if check_in.comment_threads.count > 0
-/ 						.well
-/ 							-if check_in.comment_threads.count > 3
-/ 								%p.no-margin-bottom
-/ 									%small
-/ 										%a{:href=>"#{check_in_path(check_in)}#comment-form"}
-/ 											%i.fa.fa-ellipsis-h
-/ 											view all
-/ 											= check_in.comment_threads.count
-/ 											comments
-/ 								%hr.half-margin-top.half-margin-bottom
-/ 							= render :partial => 'comments/comment', :collection => check_in.comment_threads.order('created_at asc').last(3), :as => :comment
-/ 							-if current_user.present?
-/ 								= render :partial => 'comments/form', :locals => { :comment => Comment.build_from(check_in, current_user, "") }
-/ 								.clearfix
+
 
 
 
@@ -50,39 +53,38 @@
 / 	.col-xs-2
 / 		=image_tag check_in.liquor.liquor_image.url(:thumb)
 
-%h4.half-margin-bottom
-	The nose was
-%br
-- check_in.nose_list.map do |s|
-	=s
-	%br
-=check_in.nose_rating
-\/25
-%h4.half-margin-bottom
-	it tasted
-%br
-- check_in.taste_list.map do |s|
-	=s
-	%br
-=check_in.taste_rating
-\/25
-%h4.half-margin-bottom
-	The finish was
-%br
-- check_in.finish_list.map do |s|
-	=s
-	%br
-=check_in.taste_rating
-\/25
-%h4.half-margin-bottom
-	The balance was
-=check_in.rating
-\/25
-%h4.half-margin-bottom
-	I say...
-=check_in.body
-%h4.half-margin-bottom
-	Overall
-/ =total_score
+/ %h4.half-margin-bottom
+/ 	The nose was
+/ %br
+/ - check_in.nose_list.map do |s|
+/ 	=s
+/ 	%br
+/ =check_in.nose_rating
+/ \/25
+/ %h4.half-margin-bottom
+/ 	it tasted
+/ %br
+/ - check_in.taste_list.map do |s|
+/ 	=s
+/ 	%br
+/ =check_in.taste_rating
+/ \/25
+/ %h4.half-margin-bottom
+/ 	The finish was
+/ %br
+/ - check_in.finish_list.map do |s|
+/ 	=s
+/ 	%br
+/ =check_in.taste_rating
+/ \/25
+/ %h4.half-margin-bottom
+/ 	The balance was
+/ =check_in.rating
+/ \/25
+/ %h4.half-margin-bottom
+/ 	I say...
+/ =check_in.body
+/ %h4.half-margin-bottom
+/ 	Overall
+/ / =total_score
 
-=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}

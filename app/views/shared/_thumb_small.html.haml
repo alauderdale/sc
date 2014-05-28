@@ -1,0 +1,13 @@
+.row.half-margin-bottom
+	.col-lg-12
+		.media-object
+			.pull-left.quarter-margin-right
+				=image_tag liquor.liquor_image.url(:thumb), :class=>"img-responsive", :style=>"width:35px;"
+			.media-body
+				%p.medium-font-name.no-margin-bottom{:style=>"line-height:15px;"}
+					=link_to liquor do 
+						=liquor.name
+				%p.micro-text.text-muted.no-margin-bottom
+					=liquor.distill.name
+
+

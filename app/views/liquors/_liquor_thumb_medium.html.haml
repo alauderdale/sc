@@ -1,41 +1,15 @@
-.row
-	.col-lg-12
-		.media-object
-			.pull-left.margin-right
-				=image_tag liquor.liquor_image.url(:thumb), :class=>"img-responsive full-width thumbnail"
-			.media-body
-				%h4.medium-font-name
-					=link_to liquor do 
-						=liquor.name
-				%p
-					=link_to liquor.distill do
-						=liquor.distill.name
-				-if liquor.age > 0
-					%p.text-muted
-						=liquor.age
-						Year
-				%p
-					=liquor.description
-.row.border-top.border-bottom
-	.col-sm-5
-		.border-right.display-block
-			-if liquor.check_ins.count > 0
-				%p
-					= liquor.average_rating
-
-			-else
-				%p.half-margin-top.text-muted
-					No rating to show
-	.col-sm-3
-		.border-right.display-block
-			%p.half-margin-top.text-muted
-				=liquor.check_ins.count 
-				-if liquor.check_ins.count == 1
-					rating
-				-else
-					ratings
-	.col-sm-4
-		%p.half-margin-top.text-muted
-			Added
-			=liquor.created_at.strftime("%m/%d/%y")
-
+.panel.half-padding.no-padding-top.no-padding-bottom
+	.panel-body.no-padding
+		.row.liquor-cell
+			.col-lg-12
+				.media-object
+					.pull-left.quarter-margin-right
+						=image_tag liquor.liquor_image.url(:thumb), :class=>"img-responsive", :style=>"width:80px;"
+					.media-body
+						%h2.light-font-name.quarter-margin-bottom
+							=link_to liquor do 
+								=liquor.name
+						%p.text-muted
+							%strong
+								=liquor.age
+							Year
