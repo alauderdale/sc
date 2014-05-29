@@ -1,6 +1,5 @@
 - if user_signed_in?
-	%li= link_to 'Scotch Book', liquors_path
-	%li= link_to 'Distilleries', distills_path
+	/ %li= link_to 'Scotches', liquors_path
 -else
 	%li= link_to 'Login', new_user_session_path
 	%li= link_to 'Sign up', new_user_registration_path
