@@ -42,7 +42,7 @@
 								=render partial: 'check_ins/post', locals:{:check_in => c, :avatar=> c.user.avatar.url(:xs), :name => c.user.first_name + (" ") + c.user.last_name , :timestamp => c.updated_at}
 						-else
 							%p.text-muted.text-center
-								No check ins with this liquor
+								No notes for this liquor
 			.col-sm-3
 
 #checkInModal.modal{"aria-hidden" => "true", role: "dialog"}

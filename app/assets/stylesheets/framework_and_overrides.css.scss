@@ -750,6 +750,46 @@ section{
   }
 }
 
+//check in form
+
+.note-tags{
+  input[type=checkbox], input[type=radio] {
+    display: none;
+  }
+
+  input[type=checkbox]+label,input[type=radio]+label  { 
+    color: $primary-color;
+    background:white;
+    border:1px solid tint($primary-color,20%);
+    padding:$baseline/4;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:$baseline/2;
+    font-family:$light-font-name;
+    font-size:.8em;
+    @include transition-duration(.1s);
+    &:hover{
+      border:1px solid $primary-color;
+    }
+  }
+
+  input[type=checkbox]:checked + label, input[type=radio]:checked + label  {
+    background-color: $primary-color;
+    color:white;
+  }
+
+  &.scale{
+    input[type=checkbox]+label,input[type=radio]+label{
+      float: left;
+      margin-right:5px;
+      padding:$baseline/4 $baseline/2;
+      &:last-of-type{
+        margin-right:0;
+      }
+    }
+  }
+}
+
 
 
 
