@@ -607,7 +607,7 @@ a{
     @extend .plus-btn;
     margin-top:-80px;
   }
-  &.btn-new-taste{
+  &.btn-huge{
     padding:$baseline/1.5;
     font-family:$light-font-name;
     font-size:1.8em;
@@ -740,7 +740,7 @@ section{
 
 //check ins
 
-.check-in-post{
+.check-in-post, .check-in-form{
   h5.page-header{
     color:$dark-gray-color;
     border-bottom-style: dashed;

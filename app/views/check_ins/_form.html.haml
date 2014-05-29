@@ -2,62 +2,83 @@
 
 - taste_tags = ["caramel","chocolate","citrus","coffee","floral","fruity","honey","malty","medicine","nutty","oaky","oily","peaty","peppery","salty","sherry","smoky","spicy","sweet","toffee","vanilla","winey","woody"]
 
-.form-group
-	= f.label 'Nose'
-	.row
-		.col-xs-12
-			.note-tags
-				- nose_tags.each_with_index do |t,i|
-					= f.check_box :taste_list, { :multiple => true, :id => "nose_#{i}" }, t, nil
-					%label{:for=>"nose_#{i}"}
-						=t
+- finish_tags = ["short","medium","long"]
 
+.check-in-form
+	.form-group
+		%h5.page-header
+			Nose
+		.row
+			.col-xs-12
+				.note-tags
+					- nose_tags.each_with_index do |t,i|
+						= f.check_box :taste_list, { :multiple => true, :id => "nose_#{i}" }, t, nil
+						%label{:for=>"nose_#{i}"}
+							=t
+				.form-horizontal
+					.form-group
+						.col-xs-3.no-padding-right
+							= f.text_field :nose_rating, class: 'form-control', placeholder:"score"
+						.col-xs-9
+							%p.quarter-margin-top.text-muted
+								%small
+									\/25
 
-.form-group
-	= f.label 'Taste'
-	.row
-		.col-xs-12
-			.note-tags
-				- taste_tags.each_with_index do |t,i|
-					= f.check_box :nose_list, { :multiple => true, :id => "taste_#{i}" }, t, nil
-					%label{:for=>"taste_#{i}"}
-						=t
+	%h5.page-header
+		Taste
+	.form-group
+		.row
+			.col-xs-12
+				.note-tags
+					- taste_tags.each_with_index do |t,i|
+						= f.check_box :nose_list, { :multiple => true, :id => "taste_#{i}" }, t, nil
+						%label{:for=>"taste_#{i}"}
+							=t
+				.form-horizontal
+					.form-group
+						.col-xs-3.no-padding-right
+							= f.text_field :taste_rating, class: 'form-control', placeholder:"score"
+						.col-xs-9
+							%p.quarter-margin-top.text-muted
+								%small
+									\/25
 
-	
+		
+	%h5.page-header
+		Finish
+	.form-group
+		.row
+			.col-xs-12
+				.note-tags
+					- finish_tags.each_with_index do |t,i|
+						= f.check_box :nose_list, { :multiple => true, :id => "finish_#{i}" }, t, nil
+						%label{:for=>"finish_#{i}"}
+							=t
+				.form-horizontal
+					.form-group
+						.col-xs-3.no-padding-right
+							= f.text_field :finish_rating, class: 'form-control', placeholder:"score"
+						.col-xs-9
+							%p.quarter-margin-top.text-muted
+								%small
+									\/25
+	%h5.page-header
+		Balance
+	.form-group
+		.row
+			.col-xs-12
+				.form-horizontal
+					.form-group
+						.col-xs-3.no-padding-right
+							= f.text_field :rating, class: 'form-control', placeholder:"score"
+						.col-xs-9
+							%p.quarter-margin-top.text-muted
+								%small
+									\/25
 
-.form-group
-	= f.label 'Finish'
-	.row
-		.col-xs-4
-			.checkbox
-				%label
-					= f.radio_button :finish_list, 'short'
-					short
-		.col-xs-4
-			.checkbox
-				%label
-					= f.radio_button :finish_list, 'medium'
-					medium
-		.col-xs-4
-			.checkbox
-				%label
-					= f.radio_button :finish_list, 'long'
-					long
-
-.form-group
-	= f.label 'Nose Score'
-	= f.text_field :nose_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
-.form-group
-	= f.label 'Taste Score'
-	= f.text_field :taste_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
-.form-group
-	= f.label 'Finish Score'
-	= f.text_field :finish_rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
-.form-group
-	= f.label 'Balance Score'
-	= f.text_field :rating, class: 'form-control margin-bottom', placeholder:"rating 1-25"
-.form-group
-	= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
-.form-group.margin-bottom
-	=f.label 'Upload a photo for this check-in'
-	= f.file_field :check_in_photo, :class=>"full-width"
+	.form-group
+		= f.text_area :body, :rows => 5, class: 'form-control margin-bottom', placeholder:"What did you think?"
+	.form-group.margin-bottom
+		%h5.page-header
+			Photo
+		= f.file_field :check_in_photo, :class=>"full-width"

@@ -21,7 +21,7 @@ class CheckInsController < ApplicationController
       @liquor = @check_in.liquor
       if @check_in.update_attributes(check_in_params)
           respond_to do |format|
-              format.html { redirect_to liquor_path(@liquor), :notice => "Your check in has been updated" }
+              format.html { redirect_to liquor_path(@liquor), :notice => "Your note in has been updated" }
               format.js
           end
       end

@@ -1,6 +1,8 @@
+%h5.serif-font-name.page-header.text-muted.no-margin-top
+	New Note
 = form_for(check_in_ballot) do |f|
 
 	= render(:partial => '/check_ins/form', :locals => {:f => f})
 	.form-group
 		= hidden_field_tag("liquor_id", @liquor.id)
-		= f.submit "Save", :class=>"btn btn-primary"
+		= f.submit "Save", :class=>"btn btn-primary btn-block btn-huge"

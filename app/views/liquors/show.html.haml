@@ -48,9 +48,6 @@
 #checkInModal.modal{"aria-hidden" => "true", role: "dialog"}
 	.modal-dialog
 		.modal-content
-			.modal-header
-				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-				%h4.no-margin-bottom.modal-title.light-font-name
-					Check-In
 			.modal-body
+				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
 				=render partial: 'check_ins/check_in_form'
