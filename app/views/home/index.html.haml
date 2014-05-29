@@ -1,8 +1,12 @@
-%section
+%section.half-padding-top
 	.container
 		-if current_user
 			.row
 				.col-lg-12
+					=link_to liquors_path, :class=>"btn btn-block btn-primary btn-new-taste" do
+						+ New Taste
+					%h5.page-header
+						My Scotches
 					-@user_liquors.each do |l|
 						=render partial: 'liquors/liquor_thumb_medium', locals:{:liquor => l}
 

@@ -1,6 +1,8 @@
-%section
+%section.half-padding-top
 	.container
 		.row
 			.col-lg-12
+				%h5.page-header.no-margin-top
+					Select a Scotch
 				-@liquors.each do |l|
 					=render partial: 'liquors/liquor_thumb_medium', locals:{:liquor => l}

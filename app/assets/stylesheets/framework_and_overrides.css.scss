@@ -580,7 +580,7 @@ a{
   font-family:$bold-font-name;
   @include transition-duration(.3s);
   font-size:1em;
-
+  border-radius:0!important;
   &.btn-primary{
     background-color:tint($link-color,10%);
     border-color:tint($link-color,10%)!important;
@@ -598,7 +598,7 @@ a{
   }
   &.plus-btn{
     font-size:3em;
-    border-radius:100px;
+    border-radius:100px!important;
     padding:0px 20px;
     border:2px solid white!important;
     font-family:$light-font-name;
@@ -606,6 +606,11 @@ a{
   &.new-check-in-btn{
     @extend .plus-btn;
     margin-top:-80px;
+  }
+  &.btn-new-taste{
+    padding:$baseline/1.5;
+    font-family:$light-font-name;
+    font-size:1.8em;
   }
 }
 
@@ -741,6 +746,7 @@ section{
     border-bottom-style: dashed;
     font-size:1.3em;
     font-weight:100;
+    margin-top:$baseline;
   }
 }
 
