@@ -35,7 +35,7 @@ class CheckInsController < ApplicationController
   def destroy
     @check_in = CheckIn.find(params[:id])
     @check_in.destroy
-    redirect_to :back , :notice => "Check In Deleted"
+    redirect_to :back , :notice => "Note In Deleted"
   end
 
   def check_in_params
