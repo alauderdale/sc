@@ -4,15 +4,14 @@
 	.panel-body
 		.media-object
 			.pull-left
-				=image_tag check_in.user.avatar.url(:xs), :class=>"img-circle half-margin-right", :style=>"width:40px;"
+				=image_tag avatar, :class=>"img-circle half-margin-right", :style=>"width:40px;"
 			.media-body
 				%p.no-margin-bottom{:style=>"line-height:12pt; margin-top:3px;"}
 					%strong
-						=check_in.user.first_name
-						=check_in.user.last_name
+						=name
 				%p.text-muted
 					%small
-						=time_ago_in_words(check_in.updated_at)
+						=time_ago_in_words(timestamp)
 						ago
 		%p.text-muted
 			=check_in.body

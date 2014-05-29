@@ -34,12 +34,12 @@
 				.row
 					.col-lg-12
 						%h5.page-header
-							+ My Check-Ins
+							+ My Notes With This Scotch
 				.row
 					.col-sm-12
 						-if @current_user_check_ins.count > 0
 							-@current_user_check_ins.each do |c|
-								=render partial: 'check_ins/post', locals:{:check_in => c}
+								=render partial: 'check_ins/post', locals:{:check_in => c, :avatar=> c.user.avatar.url(:xs), :name => c.user.first_name + (" ") + c.user.last_name , :timestamp => c.updated_at}
 						-else
 							%p.text-muted.text-center
 								No check ins with this liquor
