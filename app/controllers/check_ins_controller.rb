@@ -16,16 +16,20 @@ class CheckInsController < ApplicationController
 	  end
 	end
 
-  def update
-      @liquor = Liquor.find_by_id(params[:liquor_id])
-
-      @check_in = current_user.check_ins.find_by_liquor_id(@liquor.id)
+  def update_check_in
+      @check_in = CheckIn.find(params[:id])
+      @liquor = @check_in.liquor
       if @check_in.update_attributes(check_in_params)
           respond_to do |format|
-              format.html { redirect_to liquor_path(@liquor), :notice => "Your rating has been updated" }
+              format.html { redirect_to liquor_path(@liquor), :notice => "Your check in has been updated" }
               format.js
           end
       end
+  end
+
+  def edit
+    @check_in = CheckIn.find(params[:id])
+    @liquor = @check_in.liquor
   end
 
   def destroy
