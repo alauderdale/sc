@@ -21,22 +21,30 @@
 							by 
 							=@liquor.distill.name
 				-if current_user.admin
-					.margin-top
-						=render partial: 'show_actions', locals:{:liquor => @liquor}
+					.row
+					.col-sm-4
+					.col-sm-4
+						.margin-top
+							=render partial: 'show_actions', locals:{:liquor => @liquor}
+					.col-sm-4
 %section.no-padding-top
 	.container
 		.row
-			.col-lg-12
-				%h5.page-header
-					+ My Notes
-		.row
-			.col-sm-12
-				-if @current_user_check_ins.count > 0
-					-@current_user_check_ins.each do |c|
-						=render partial: 'check_ins/post', locals:{:check_in => c}
-				-else
-					%p.text-muted.text-center
-						No activity to show
+			.col-sm-4
+			.col-sm-4
+				.row
+					.col-lg-12
+						%h5.page-header
+							+ My Notes
+				.row
+					.col-sm-12
+						-if @current_user_check_ins.count > 0
+							-@current_user_check_ins.each do |c|
+								=render partial: 'check_ins/post', locals:{:check_in => c}
+						-else
+							%p.text-muted.text-center
+								No activity to show
+			.col-sm-4
 
 
 / %section

@@ -1,3 +1,5 @@
+- total_score = (check_in.nose_rating+check_in.taste_rating+check_in.finish_rating+check_in.rating)
+
 .panel.check-in-post
 	.panel-body
 		.media-object
@@ -14,6 +16,9 @@
 						ago
 		%p.text-muted
 			=check_in.body
+		-if !(check_in.check_in_photo.content_type =~ /^image/).nil?
+			=image_tag (check_in.check_in_photo.url)
+		//item
 		%h5.page-header.half-margin-bottom
 			%span.pull-left
 				Nose
@@ -23,50 +28,47 @@
 				\/25
 			.clearfix
 		%p.text-muted
-			- check_in.nose_list.map do |s|
-				=s
+			= check_in.nose_list
+		//item
+		%h5.page-header.half-margin-bottom
+			%span.pull-left
+				Taste
+			%span.pull-right
+				%span.primary-text-color
+					=check_in.taste_rating
+				\/25
+			.clearfix
+		%p.text-muted
+			= check_in.taste_list
+		//item
+		%h5.page-header.half-margin-bottom
+			%span.pull-left
+				Finish
+			%span.pull-right
+				%span.primary-text-color
+					=check_in.finish_rating
+				\/25
+			.clearfix
+		%p.text-muted
+			= check_in.finish_list
+		//item
+		%h5.page-header.half-margin-bottom
+			%span.pull-left
+				Balance
+			%span.pull-right
+				%span.primary-text-color
+					=check_in.rating
+				\/25
+			.clearfix
+		//item
+		%h5.page-header.half-margin-bottom
+			%span.pull-left
+				Total Score
+			%span.pull-right
+				%span.primary-text-color
+					=total_score
+				\/100
+			.clearfix
+
+
 		=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
-
-
-
-
-
-		
-/ 	.col-xs-2
-/ 		=image_tag check_in.liquor.liquor_image.url(:thumb)
-
-/ %h4.half-margin-bottom
-/ 	The nose was
-/ %br
-/ - check_in.nose_list.map do |s|
-/ 	=s
-/ 	%br
-/ =check_in.nose_rating
-/ \/25
-/ %h4.half-margin-bottom
-/ 	it tasted
-/ %br
-/ - check_in.taste_list.map do |s|
-/ 	=s
-/ 	%br
-/ =check_in.taste_rating
-/ \/25
-/ %h4.half-margin-bottom
-/ 	The finish was
-/ %br
-/ - check_in.finish_list.map do |s|
-/ 	=s
-/ 	%br
-/ =check_in.taste_rating
-/ \/25
-/ %h4.half-margin-bottom
-/ 	The balance was
-/ =check_in.rating
-/ \/25
-/ %h4.half-margin-bottom
-/ 	I say...
-/ =check_in.body
-/ %h4.half-margin-bottom
-/ 	Overall
-/ / =total_score
-

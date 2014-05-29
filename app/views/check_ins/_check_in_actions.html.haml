@@ -1,7 +1,7 @@
 .clearfix
 	%p.micro-text.no-marigin-bottom
-		= link_to  (check_in), :class=>"pull-left" do
-			View More
+		= link_to  (edit_check_in_path check_in.id), :class=>"pull-left" do
+			Edit 
 		-if current_user.id == check_in.user_id
 			= link_to (check_in), :class=>"pull-right", :confirm => 'Are you sure?', :method => :delete do
 				Delete

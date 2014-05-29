@@ -4,7 +4,7 @@
 // make all images responsive by default
 img {
   @extend .img-responsive;
-  margin: 0 auto;
+  // margin: 0 auto;
   }
 
 @import 'bourbon';
@@ -278,6 +278,10 @@ h6 { font-size: 0.9em; line-height:$baseline;}
 
 .text-uppercase{
   text-transform:uppercase;
+}
+
+.text-muted{
+  color:$medium-gray-color;
 }
 
 
@@ -735,6 +739,8 @@ section{
   h5.page-header{
     color:$dark-gray-color;
     border-bottom-style: dashed;
+    font-size:1.3em;
+    font-weight:100;
   }
 }
 
@@ -760,6 +766,7 @@ section{
 
 .alert{
   border-radius:0px!important;
+  margin-bottom:0;
   &.alert-success{
     background-color:shade($link-color,30%);
     border:shade($link-color,30%);
