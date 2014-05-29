@@ -112,6 +112,7 @@ img {
 $primary-color: #e0742b;
 $secondary-color: #ffcc00;
 $medium-gray-color: #666;
+$dark-gray-color: #333;
 $light-gray-color: #fafafa;
 $gray-color:#dddddd;
 $text-color: #000;
@@ -725,6 +726,15 @@ section{
 .liquor-cell{
   h3{
     line-height:30px!important;
+  }
+}
+
+//check ins
+
+.check-in-post{
+  h5.page-header{
+    color:$dark-gray-color;
+    border-bottom-style: dashed;
   }
 }
 

@@ -1,4 +1,4 @@
-.panel
+.panel.check-in-post
 	.panel-body
 		.media-object
 			.pull-left
@@ -15,34 +15,16 @@
 		%p.text-muted
 			=check_in.body
 		%h5.page-header.half-margin-bottom
-			Nose
-			%span.primary-text-color
-				=check_in.nose_rating
-			\/25
+			%span.pull-left
+				Nose
+			%span.pull-right
+				%span.primary-text-color
+					=check_in.nose_rating
+				\/25
+			.clearfix
 		%p.text-muted
 			- check_in.nose_list.map do |s|
 				=s
-		%h5.page-header.half-margin-bottom
-			Taste
-			%span.primary-text-color
-				=check_in.taste_rating
-			\/25
-		%p.text-muted
-			- check_in.taste_list.map do |s|
-				=s
-		%h5.page-header.half-margin-bottom
-			Finish
-			%span.primary-text-color
-				=check_in.finish_rating
-			\/25
-		%p.text-muted
-			- check_in.finish_list.map do |s|
-				=s
-		%h5.page-header.half-margin-bottom
-			Balance
-			%span.primary-text-color
-				=check_in.rating
-			\/25
 		=render partial: 'check_ins/check_in_actions', locals:{:check_in => check_in}
 
 
